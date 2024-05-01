@@ -5,6 +5,7 @@ public class Journal
     public void AddEntry(Entry newEntry)
 
     {
+        
 
     }
 
