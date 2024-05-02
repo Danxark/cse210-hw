@@ -3,24 +3,16 @@ using System.IO;
 
 class Program
 {
-
     static void Main(string[] args)
     {
-        // Journal myJournal = new Journal();
-        // myJournal.Run();
-
-
         int[] validNumbers = { 1, 2, 3, 4, 5 };
         int action = 0;
         Console.Write("\n -Welcome to the Journal program!-\n");
-        // Create new journal reference/list
         Journal journal = new Journal();
 
 
         while (action != 5)
         {
-            // Ask for user input (1-5)
-            //Call Choices
             action = Choices();
 
             switch (action)
