@@ -12,7 +12,7 @@ class Program
 
         int[] validNumbers = { 1, 2, 3, 4, 5 };
         int action = 0;
-        Console.Write("\n**** Welcome to the Journal App ****\n");
+        Console.Write("\n -Welcome to the Journal program!-\n");
         // Create new journal reference/list
         Journal journal = new Journal();
 
@@ -26,42 +26,34 @@ class Program
             switch (action)
             {
                 case 1:
-                    // Write Journal Entry
                     string dateInfo = GetDateTime();
                     string prompt = JournalPrompts();
                     JournalEntry entry = new JournalEntry();
                     entry._dateTime = dateInfo;
                     entry._journalPrompt = prompt;
 
-                    Console.Write(">>> ");
+                    Console.Write("... ");
                     string userEntry = Console.ReadLine();
                     entry._journalEntry = userEntry;
 
                     journal._journal.Add(entry);
 
-                    // Console.WriteLine("Success Choice 1!");
                     break;
                 case 2:
-                    // Display Journal Entries
                     journal.Display();
-                    // Console.WriteLine("Success Choice 2!");
                     break;
                 case 3:
-                    // Load
+
                     journal.LoadJournalFile();
-                    // Console.WriteLine("Success Choice 3!");
                     break;
                 case 4:
-                    // Save
                     journal.CreateJournalFile();
-                    // Console.WriteLine("Success Choice 4!");
                     break;
                 case 5:
-                    // Quite
-                    Console.WriteLine("\nThank you for using the Journal App!\n");
+                    Console.WriteLine("\nThank you for using the Journal Program!\n");
                     break;
                 default:
-                    Console.WriteLine("\nSorry that is not a valid choice!");
+                    Console.WriteLine("\nSorry that's not a valid choice!");
                     break;
             }
         }
@@ -70,7 +62,6 @@ class Program
     }
 
     static string JournalPrompts()
-    // Method to display random journal prompts to user
     {
         var random = new Random();
 
@@ -91,7 +82,6 @@ class Program
 
 
     static int Choices()
-    // Method to display choices to user
     {
         string choices = @"
 Please select one of the following choices:
@@ -110,16 +100,12 @@ What would you like to do? ";
     }
 
     static string GetDateTime()
-    // Method to get the date and time for journal record
     {
         DateTime now = DateTime.Now;
         string currentDateTime = now.ToString("F");
-        // Console.WriteLine(now.ToString("F"));
-        // Displays Saturday, March 01, 2008 7:00:00 AM
         return currentDateTime;
     }
     static void AddJournalEntry()
-    // Method to add entry to text file
     {
         string MyJournalFile = "MyJournal.txt";
         File.AppendAllText(MyJournalFile, "");
