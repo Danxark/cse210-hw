@@ -24,7 +24,6 @@ public class JournalPrompt
         string journalPrompt = _journalPrompt[index];
         Console.WriteLine($"\n{_journalPrompt}");
     }
-
     public string GetPrompt()
     {
         var random = new Random();
