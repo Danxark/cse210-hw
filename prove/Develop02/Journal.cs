@@ -1,3 +1,4 @@
+
 public class Journal
 {
     public List<Entry> _entry;
@@ -6,11 +7,15 @@ public class Journal
 
     {
         
+        
 
     }
 
     public void DisplayAll()
     {
+       
+        
+
 
     }
 
@@ -20,6 +25,15 @@ public class Journal
     }
     public void LoadFromFile(string file)
     {
-        
+        string filename = "myFile.txt";
+        string[] lines = System.IO.File.ReadAllLines(filename);
+
+        foreach (string line in lines)
+        {
+
+            string[] parts = line.Split(",");
+            string firstName = parts[0];
+            string lastName = parts[1];
+        }
     }
 }
