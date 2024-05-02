@@ -7,6 +7,9 @@ public class Journal
     public void AddEntry(Entry newEntry)
 
     {
+        Console.WriteLine("Welcome to the Journal program!");
+        Console.WriteLine("Please select one of the following choices:");
+
         
         
 
