@@ -1,55 +1,71 @@
-using System.IO;
+using System;
+
+
 public class Journal
 {
-    public List<Entry> _entry;
-    private Stream filename;
+    // variables
+    public List<JournalEntry> _journal = new List<JournalEntry>();
+    private string fileName = "MyJournal.txt";
 
-    public void AddEntry(Entry newEntry)
 
+    // method
+    public Journal()
     {
-        Console.WriteLine("Welcome to the Journal program!");
-        Console.WriteLine("Please select one of the following choices:");
-        Console.ReadLine();
-
-        
-        
-
     }
 
-    public void DisplayAll()
+    // A method that displays each journal entry
+    public void Display()
     {
-       
-        
-
-
-    }
-
-    public void SaveToFile(string file)
-    {
-        string filename = "myFile.txt";
-        using (StreamWriter outputFile = new StreamWriter(filename))
+        Console.WriteLine("\n************** Journal Entries **************");
+        foreach (JournalEntry journalEntry in _journal)
         {
-    // You can add text to the file with the WriteLine method
-        outputFile.WriteLine("This will be the first line in the file.");
-    
-    // You can use the $ and include variables just like with Console.WriteLine
-        string color = "Blue";
-        outputFile.WriteLine($"My favorite color is {color}");
-        } 
-        
-
-    }
-    public void LoadFromFile(string file)
-    {
-        string filename = "myFile.txt";
-        string[] lines = System.IO.File.ReadAllLines(filename);
-
-        foreach (string line in lines)
-        {
-
-            string[] parts = line.Split(",");
-            string firstName = parts[0];
-            string lastName = parts[1];
+            journalEntry.Display();
         }
     }
+
+    public void CreateJournalFile()
+    // Method to check if txt file is created if not create one
+    {
+        // string fileName = "MyJournal.txt";
+
+        if (!File.Exists(fileName))
+        {
+            using (StreamWriter outputFile = new StreamWriter(fileName))
+            {
+                File.CreateText(fileName);
+                outputFile.WriteLine("************** Journal Entries **************\n");
+                foreach (JournalEntry journalEntry in _journal)
+                {
+                    outputFile.WriteLine($"{journalEntry._dateTime}");
+                    outputFile.WriteLine($"Prompt: {journalEntry._journalPrompt}");
+                    outputFile.WriteLine($"Entry: {journalEntry._journalEntry}\n");
+                }
+            }
+            Console.Write("\n*** MyJournal.txt has been created! ***\n");
+        }
+        else
+        {
+            Console.Write("\n*** MyJournal.txt already exits. ***\n");
+            using (StreamWriter outputFile = new StreamWriter(fileName, append: true))
+            {
+                foreach (JournalEntry journalEntry in _journal)
+                {
+                    outputFile.WriteLine($"{journalEntry._dateTime}");
+                    outputFile.WriteLine($"Prompt: {journalEntry._journalPrompt}");
+                    outputFile.WriteLine($"Entry: {journalEntry._journalEntry}\n");
+                }
+            }
+        }
+    }
+
+    public void LoadJournalFile()
+    // Method to check if txt file is created and load it
+    {
+         if (File.Exists(fileName))
+        {
+            string text = File.ReadAllText(fileName);
+            Console.WriteLine($"\n{text}");
+        }
+    }
+
 }
