@@ -3,16 +3,21 @@ using System.IO;
 
 class Program
 {
+
     static void Main(string[] args)
     {
+
+
         int[] validNumbers = { 1, 2, 3, 4, 5 };
         int action = 0;
-        Console.Write("\n -Welcome to the Journal program!-\n");
+        Console.Write("\n -Welcome to the Journal Program!-\n");
+        
         Journal journal = new Journal();
 
 
         while (action != 5)
         {
+
             action = Choices();
 
             switch (action)
@@ -24,24 +29,31 @@ class Program
                     entry._dateTime = dateInfo;
                     entry._journalPrompt = prompt;
 
-                    Console.Write("... ");
+                    Console.Write(">>> ");
                     string userEntry = Console.ReadLine();
                     entry._journalEntry = userEntry;
 
                     journal._journal.Add(entry);
 
+
                     break;
                 case 2:
+
                     journal.Display();
+
                     break;
                 case 3:
 
                     journal.LoadJournalFile();
+    
                     break;
                 case 4:
+          
                     journal.CreateJournalFile();
+      
                     break;
                 case 5:
+                
                     Console.WriteLine("\nThank you for using the Journal Program!\n");
                     break;
                 default:
@@ -62,8 +74,8 @@ class Program
             "What was the best part of my day?",
             "How did I see the hand of the Lord in my life today?",
             "What was the strongest emotion I felt today?",
-            "Did you watch a movie today? If so what?",
-            "Did you watch a TV show today? If so what?"
+            "If I had one thing I could do over today, what would it be?",
+            
         };
         int index = random.Next(prompt.Count);
         string journalPrompt = prompt[index];
@@ -88,6 +100,7 @@ What would you like to do? ";
         string userInput = Console.ReadLine();
         int action = int.Parse(userInput);
 
+
         return action;
     }
 
@@ -95,6 +108,7 @@ What would you like to do? ";
     {
         DateTime now = DateTime.Now;
         string currentDateTime = now.ToString("F");
+
         return currentDateTime;
     }
     static void AddJournalEntry()
