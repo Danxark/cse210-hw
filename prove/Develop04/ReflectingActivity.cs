@@ -56,7 +56,7 @@ public class ReflectingActivity : Activity
         Console.WriteLine(); 
         var prompt = GetRandomPrompt();
         Console.WriteLine("\nConsider the following prompt:");
-        Console.WriteLine($"\n--- {prompt} ---");
+        Console.WriteLine($"\n -{prompt}- ");
         Console.WriteLine($"\nWhen you have something in mind, press enter to continue.");
 
         var input = Console.ReadKey();
