@@ -7,7 +7,7 @@ class Program
     static void Main(string[] args)
     {
         Console.Clear();
-        Console.Write("\n -Welcome to the Mindfulness Program-\n");
+        Console.Write("\n |  Welcome to the Mindfulness Program   |\n");
         
         Choices choice = new Choices();
         int seconds;
@@ -15,12 +15,12 @@ class Program
         int action = 0;
         while (action != 4)
         {
-            
+
             action = choice.UserChoice();
             switch (action)
             {
                 case 1:
-                    
+                   
                     Console.Clear();
                     BreathingActivity breathing = new BreathingActivity("Breathing", 0);
                     breathing.GetActivityName();
@@ -31,7 +31,7 @@ class Program
                     breathing.GetDone();
                     break;
                 case 2:
-                    
+    
                     Console.Clear();
                     ReflectingActivity reflecting = new ReflectingActivity("Reflecting", 0);
                     reflecting.GetActivityName();
@@ -42,7 +42,7 @@ class Program
                     reflecting.GetDone();
                     break;
                 case 3:
-                   
+
                     Console.Clear();
                     ListingActivity listing = new ListingActivity("Listing", 0);
                     listing.GetActivityName();
@@ -53,7 +53,7 @@ class Program
                     listing.GetDone();
                     break;
                 case 4:
-                 ¿
+                    // Quite
                     Console.WriteLine("\nThank you for using the Mindfulness Program!\n");
                     break;
                 default:
