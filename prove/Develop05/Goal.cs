@@ -2,14 +2,14 @@ using System;
 
 public abstract class Goal
 {
-  
+    // Attributes
     private string _type;
     private string _name;
     private string _description;
     private int _points;
 
 
-   
+    // Constructors
     public Goal(string type, string name, string description, int points)
     {
         _type = type;
@@ -17,7 +17,7 @@ public abstract class Goal
         _description = description;
         _points = points;
     }
-    public new string GetType()
+    public string GetType()
     {
         return _type;
     }
@@ -35,8 +35,10 @@ public abstract class Goal
     }
 
 
+    // Methods
     public abstract void ListGoal(int i);
     public abstract string SaveGoal();
     public abstract string LoadGoal();
     public abstract void RecordGoalEvent(List<Goal> goals);
 
+}
