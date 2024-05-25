@@ -4,12 +4,12 @@ using System.IO;
 public class GoalManagement
 
 {
-    // Attributes
+    
     private List<Goal> _goals = new List<Goal>();
     private int _totalPoints;
 
 
-    // Constructors
+    
     public GoalManagement()
     {
         _totalPoints = 0;
@@ -39,7 +39,7 @@ public class GoalManagement
         return _goals;
     }
 
-    // Methods
+
     public void ListGoals()
     {
         if (_goals.Count() > 0)
@@ -47,7 +47,7 @@ public class GoalManagement
             Console.WriteLine("\nYour Goals are:");
 
             int index = 1;
-            // Loop though goals list
+            
             foreach (Goal goal in _goals)
             {
                 goal.ListGoal(index);
@@ -81,9 +81,9 @@ public class GoalManagement
 
         using (StreamWriter outputFile = new StreamWriter(userFileName))
         {
-            // Save Total Points
+            
             outputFile.WriteLine(GetTotalPoints());
-            // Save goals list
+          
             foreach (Goal goal in _goals)
             {
                 outputFile.WriteLine(goal.SaveGoal());
@@ -101,12 +101,12 @@ public class GoalManagement
         {
             string[] readText = File.ReadAllLines(userFileName);
 
-            // read the first line of text file for total stored points
+           
             int totalPoints = int.Parse(readText[0]);
             SetTotalPoints(totalPoints);
-            // skip the first line of text file to read to goals
+            
             readText = readText.Skip(1).ToArray();
-            // loop though text file for goals
+            
             foreach (string line in readText)
             {
                 string[] entries = line.Split("; ");

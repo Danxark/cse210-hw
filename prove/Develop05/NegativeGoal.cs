@@ -2,11 +2,11 @@ using System;
 
 public class NegativeGoal : Goal
 {
-    // Attributes
+ 
     private string _type = "Negative Goal:";
     private bool _status;
 
-    // Constructors
+  
     public NegativeGoal(string type, string name, string description, int points) : base(type, name, description, points)
     {
         _status = false;
@@ -19,8 +19,8 @@ public class NegativeGoal : Goal
     {
         return _status;
     }
+ 
 
-    // Methods
     public override void ListGoal(int i)
     {
         Console.WriteLine($"{i}. [ ] {GetName()} ({GetDescription()})");
