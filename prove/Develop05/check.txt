@@ -1,0 +1,4 @@
+4
+Eternal Goal:; Read The Book Of Mormon In English ; Read BOM; 2; False
+Check List Goal:; Buy The Groceries; Byu; 2; False; 5; 4; 1
+Check List Goal:; Do The Task Of My Day; Do Everything That Is Necesary To Acomplish My Certificate; 4; False; 4; 4; 0
